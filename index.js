@@ -11,8 +11,8 @@ client.on('ready', async () => {
     .setType('PLAYING')
     .setState('✅ Official Reseller')
     .setDetails('Best Prices')
-    .addButton('SHOP LINK', 'https://giorstore.xyz')
-    .addButton('JOIN DISCORD', 'https://discord.gg/TU_LINK');
+    .addButton('SHOP LINK', 'https://giorshop.mysellauth.com/')
+    .addButton('JOIN DISCORD', 'https://discord.gg/UzHePBPT29');
   client.user.setPresence({ activities: [r] });
 });
 
