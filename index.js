@@ -1,19 +1,23 @@
-const RPC = require('discord-rpc');
-const client = new RPC.Client({ transport: 'ipc' });
+const { Client } = require('discord.js-selfbot-v13');
+const client = new Client({ checkUpdate: false });
 const http = require('http');
 
-http.createServer((req, res) => res.end("Gior Store RPC Online")).listen(process.env.PORT || 3000);
+// Servidor para que Render no se apague
+http.createServer((req, res) => res.end("Gior RPC Online")).listen(process.env.PORT || 3000);
 
-client.on('ready', () => {
-    console.log('RPC ONLINE');
-    client.setActivity({
-        details: "Best Prices",
-        state: "✅ Official Reseller",
-        buttons: [
-            { label: "SHOP LINK", url: "https://giorstore.xyz" },
-            { label: "JOIN DISCORD", url: "https://discord.gg/TU_LINK" }
-        ]
-    });
+client.on('ready', async () => {
+  console.log(`¡Logueado en ${client.user.tag}!`);
+  
+  const r = new (require('discord.js-selfbot-v13')).RichPresence(client)
+    .setApplicationId('11482072730785419314')
+    .setType('PLAYING')
+    .setState('✅ Official Reseller')
+    .setDetails('Best Prices')
+    .setAssetsLargeImage('gior_logo') 
+    .addButton('SHOP LINK', 'https://giorstore.xyz')
+    .addButton('JOIN DISCORD', 'https://discord.gg/TU_LINK');
+
+  client.user.setPresence({ activities: [r] });
 });
 
-client.login({ clientId: "11482072730785419314" }).catch(console.error);
+client.login(process.env.TOKEN);
