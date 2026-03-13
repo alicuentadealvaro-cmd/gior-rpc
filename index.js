@@ -7,7 +7,7 @@ http.createServer((req, res) => res.end("RPC Gior Online")).listen(process.env.P
 client.on('ready', async () => {
   console.log(`¡LOGUEADO EN ${client.user.tag}!`);
   const r = new (require('discord.js-selfbot-v13')).RichPresence(client)
-    .setApplicationId('11482072730785419314')
+    .setApplicationId('1482072730785419314')
     .setType('PLAYING')
     .setState('✅ Official Reseller')
     .setDetails('Best Prices')
