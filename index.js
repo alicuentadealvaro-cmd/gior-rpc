@@ -1,19 +1,20 @@
 const { Client } = require('discord.js-selfbot-v13');
-const client = new Client({ checkUpdate: false });
+const client = new Client({ 
+    checkUpdate: false,
+    patchVoice: true // ESTA LÍNEA ARREGLA EL ERROR DE TU FOTO
+});
 const http = require('http');
 
-// Servidor para que Render no se apague
 http.createServer((req, res) => res.end("Gior RPC Online")).listen(process.env.PORT || 3000);
 
 client.on('ready', async () => {
-  console.log(`¡Logueado en ${client.user.tag}!`);
+  console.log(`¡LOGUEADO CON ÉXITO EN ${client.user.tag}!`);
   
   const r = new (require('discord.js-selfbot-v13')).RichPresence(client)
     .setApplicationId('11482072730785419314')
     .setType('PLAYING')
-    .setState('✅ Accounts Fresh')
+    .setState('✅ Official Reseller')
     .setDetails('Best Prices')
-    .setAssetsLargeImage('gior_logo') 
     .addButton('SHOP LINK', 'https://giorshop.mysellauth.com/')
     .addButton('JOIN DISCORD', 'https://discord.gg/UzHePBPT29');
 
