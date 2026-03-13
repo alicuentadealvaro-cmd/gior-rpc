@@ -11,11 +11,11 @@ client.on('ready', async () => {
   const r = new (require('discord.js-selfbot-v13')).RichPresence(client)
     .setApplicationId('11482072730785419314')
     .setType('PLAYING')
-    .setState('✅ Official Reseller')
+    .setState('✅ Accounts Fresh')
     .setDetails('Best Prices')
     .setAssetsLargeImage('gior_logo') 
-    .addButton('SHOP LINK', 'https://giorstore.xyz')
-    .addButton('JOIN DISCORD', 'https://discord.gg/TU_LINK');
+    .addButton('SHOP LINK', 'https://giorshop.mysellauth.com/')
+    .addButton('JOIN DISCORD', 'https://discord.gg/UzHePBPT29');
 
   client.user.setPresence({ activities: [r] });
 });
